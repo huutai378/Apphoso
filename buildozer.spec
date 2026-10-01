@@ -19,8 +19,7 @@ source.include_exts = py,png,jpg,kv,atlas,db
 version = 0.1
 
 # (list) Application requirements
-# Khóa rõ phiên bản python3==3.10.11 để tránh dính Python 3.14
-requirements = python3==3.10.11,kivy
+requirements = python3,kivy
 
 # (str) Supported orientation (one of landscape, sensorLandscape, portrait or all)
 orientation = portrait
@@ -32,13 +31,13 @@ fullscreen = 0
 android.permissions = INTERNET
 
 # (int) Target Android API, should be as high as possible.
-android.api = 31
+android.api = 33
 
 # (int) Minimum API required
 android.minapi = 21
 
 # (str) Android NDK version to use
-android.ndk = 23b
+android.ndk = 25b
 
 # (bool) If True, then automatically accept SDK license agreements
 android.accept_sdk_license = True
