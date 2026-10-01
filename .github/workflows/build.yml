@@ -8,16 +8,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
+    container:
+      image: kivy/buildozer:latest
+      options: --user root
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build APK with Official Kivy Buildozer Action
-        uses: kivy/buildozer-action@v1.2
-        with:
-          command: buildozer android debug
-          subfolder: .
+      - name: Fix permissions and Build APK
+        run: |
+          # Bỏ qua kiểm tra root hoặc tạo môi trường chuẩn
+          chown -R user:user .
+          su user -c "buildozer android debug"
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
