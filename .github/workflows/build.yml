@@ -13,12 +13,6 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
-    - name: Free Disk Space
-      run: |
-        sudo rm -rf /usr/share/dotnet
-        sudo rm -rf /opt/ghc
-        sudo rm -rf "/usr/local/share/boost"
-
     - name: Set up Python 3.10
       uses: actions/setup-python@v5
       with:
@@ -32,13 +26,12 @@ jobs:
           libncurses5-dev libncursesw5-dev libsqlite3-dev cmake libgdbm-dev \
           libnss3-dev libreadline-dev lld
         python -m pip install --upgrade pip setuptools wheel
-        pip install buildozer==1.5.0 cython==0.29.33
+        pip install buildozer cython
 
     - name: Build APK with Buildozer
       run: |
         mkdir -p ~/.android
         touch ~/.android/repositories.cfg
-        # Chạy trực tiếp không dùng lệnh yes | để tránh lỗi Broken Pipe
         buildozer -v android debug
 
     - name: Upload APK Artifact
