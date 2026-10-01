@@ -13,7 +13,7 @@ orientation = portrait
 fullscreen = 0
 android.permissions = INTERNET
 
-# Đưa về bộ SDK/NDK ổn định nhất của Kivy
+# Đưa về SDK 31 chuẩn định dạng Android
 android.api = 31
 android.minapi = 21
 android.ndk = 23b
