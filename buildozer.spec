@@ -16,8 +16,8 @@ source.dir = .
 source.include_exts = py,png,jpg,kv,atlas,json
 
 # (list) Application requirements
-# Chú ý: Chỉ để python3 và kivy, tuyệt đối không ghi phiên bản python ở đây
-requirements = python3,kivy
+# KHÓA CỨNG PYTHON 3.11 VÀ KIVY 2.3.0 ĐỂ TRÁNH BỊ KÉO PYTHON 3.14 LỖI
+requirements = python3==3.11.5,kivy==2.3.0
 
 # (str) Custom source folders for requirements
 # version of your application
@@ -36,10 +36,15 @@ android.ndk = 25b
 android.accept_sdk_license = True
 
 # (str) The Android arch to build for
-android.archs = arm64-v8a, armeabi-v7a
+# CHỈ BUILD 1 KIẾN TRÚC ARM64 ĐỂ RÚT NGẮN 50% THỜI GIAN VÀ TRÁNH LỖI XUNG ĐỘT
+android.archs = arm64-v8a
 
 # (bool) Enable Android auto backup
 android.allow_backup = True
+
+# (str) python-for-android git branch to use
+# CỐ ĐỊNH NHÁNH P4A CỰC KỲ ỔN ĐỊNH
+p4a.branch = release-2023.05.21
 
 [buildozer]
 
