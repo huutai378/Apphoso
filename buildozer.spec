@@ -7,20 +7,18 @@ source.include_exts = py,png,jpg,kv,atlas,db
 
 version = 0.1
 
-# Thư viện Python cần thiết
-requirements = python3,kivy,sqlite3
+requirements = python3,kivy
 
 orientation = portrait
 fullscreen = 0
 android.permissions = INTERNET
 
-# Cấu hình Android SDK/NDK
+# Đưa về bộ SDK/NDK ổn định nhất của Kivy
 android.api = 31
 android.minapi = 21
 android.ndk = 23b
 android.accept_sdk_license = True
 
-# Chỉ build 1 kiến trúc chip arm64-v8a để tối ưu tốc độ và bộ nhớ
 android.archs = arm64-v8a
 
 [buildozer]
