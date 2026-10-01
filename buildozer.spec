@@ -7,16 +7,17 @@ source.include_exts = py,png,jpg,kv,atlas,db
 
 version = 0.1
 
+# Khai báo các thư viện chuẩn
 requirements = python3,kivy
 
 orientation = portrait
 fullscreen = 0
 android.permissions = INTERNET
 
-# Đưa về SDK 31 chuẩn định dạng Android
-android.api = 31
+# Cấu hình SDK chuẩn
+android.api = 33
 android.minapi = 21
-android.ndk = 23b
+android.ndk = 25b
 android.accept_sdk_license = True
 
 android.archs = arm64-v8a
