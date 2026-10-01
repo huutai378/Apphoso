@@ -7,17 +7,17 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Build APK with Buildozer Action
-        uses: ArtemSBulgakov/buildozer-action@v1.2.0
+      - name: Build APK with Official Kivy Buildozer Action
+        uses: kivy/buildozer-action@v1.2
         with:
-          workdir: .
-          buildozer_version: stable
+          command: buildozer android debug
+          subfolder: .
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
