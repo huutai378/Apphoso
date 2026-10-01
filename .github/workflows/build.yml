@@ -10,17 +10,16 @@ jobs:
     runs-on: ubuntu-22.04
     container:
       image: kivy/buildozer:latest
-      options: --user root
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Fix permissions and Build APK
+      - name: Build APK with Buildozer
+        env:
+          BUILDOZER_ALLOW_KIVY_BUILD_AS_ROOT: 1
         run: |
-          # Bỏ qua kiểm tra root hoặc tạo môi trường chuẩn
-          chown -R user:user .
-          su user -c "buildozer android debug"
+          buildozer android debug
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
