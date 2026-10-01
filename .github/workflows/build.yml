@@ -13,6 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    - name: Free Disk Space
+      run: |
+        sudo rm -rf /usr/share/dotnet
+        sudo rm -rf /opt/ghc
+        sudo rm -rf "/usr/local/share/boost"
+
     - name: Set up Python 3.10
       uses: actions/setup-python@v5
       with:
@@ -24,8 +30,8 @@ jobs:
         sudo apt-get install -y build-essential libssl-dev libffi-dev python3-dev \
           git zip unzip openjdk-17-jdk ccache autoconf libtool pkg-config zlib1g-dev \
           libncurses5-dev libncursesw5-dev libsqlite3-dev cmake libgdbm-dev \
-          libnss3-dev libreadline-dev
-        python -m pip install --upgrade pip setuptools
+          libnss3-dev libreadline-dev lld cython
+        python -m pip install --upgrade pip setuptools wheel
         pip install buildozer==1.5.0 cython==0.29.33
 
     - name: Build APK with Buildozer
